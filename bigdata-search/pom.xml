@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zi.search</groupId>
+	<artifactId>search-es</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>search-es</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<hbase.version>1.2.1</hbase.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- JDK start -->
+		<!--
+		-->
+		<dependency>
+		    <groupId>jdk.tools</groupId>
+		    <artifactId>jdk.tools</artifactId>
+		    <version>1.8</version>
+		    <scope>system</scope>
+		    <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+		</dependency>
+		<!-- JDK end -->
+		<!-- JUNIT start -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+		<!-- JUNIT end -->
+		<!-- ELASTICSEARCH start -->
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>2.3.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- ELASTICSEARCH end -->
+		<!-- LOG4J start -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<!-- LOG4J end -->
+		<!-- HTTPCLIENT start -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+		<!-- HTTPCLIENT end -->
+		<!-- FASTJSON start -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.15</version>
+		</dependency>
+		<!-- FASTJSON end -->
+		<!-- MYSQL start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
+		<!-- MYSQL end -->
+		<!-- HBASE start -->
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-client</artifactId>
+			<version>${hbase.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hadoop-client</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- HBASE end -->
+		<!-- GUAVA start -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-thirdparty</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- GUAVA end -->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source> <!-- 源代码使用的开发版本 -->
+					<target>1.8</target> <!-- 需要生成的目标class文件的编译版本 -->
+					<!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中需要没有使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->
+
+					<!-- 这下面的是可选项 -->
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
+					<fork>true</fork> <!-- fork is enable,用于明确表示编译版本配置的可用 -->
+					<compilerVersion>1.3</compilerVersion>
+
+					<!-- 这个选项用来传递编译器自身不包含但是却支持的参数选项 -->
+					<compilerArgument>-verbose -bootclasspath ${java.home}\lib\rt.jar</compilerArgument>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,6 @@
+index:    
+  analysis:                       
+    analyzer:          
+      paoding:    
+          alias: [paoding_analyzer]    
+          type: org.elasticsearch.index.analysis.PaodingAnalyzerProvider
