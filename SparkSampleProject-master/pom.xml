@@ -7,7 +7,7 @@
   <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>rts.spark</name>
+  <name>sparkstreaming-twitter</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -96,17 +96,17 @@
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-streaming_2.10</artifactId>
-      <version>1.0.2</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-streaming-kafka_2.10</artifactId>
-      <version>1.0.2</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.10</artifactId>
-      <version>1.0.2</version>
+      <version>1.6.1</version>
       <exclusions>
         <exclusion>
           <groupId>commons-httpclient</groupId>
@@ -117,7 +117,7 @@
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
-      <version>2.2.0</version>
+      <version>2.7.2</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -137,7 +137,7 @@
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
-      <version>2.2.0</version>
+      <version>2.7.2</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -164,7 +164,7 @@
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
-      <version>2.10.4</version>
+      <version>2.10.6</version>
     </dependency>
   </dependencies>
 </project>
